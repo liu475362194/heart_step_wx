@@ -1,0 +1,18 @@
+
+
+<view class="ble-ready">
+  <text>激活蓝牙</text>
+  <switch class="ble-switch" type="switch" checked="{{searchingstatus}}" bindchange="searchbluetooth" />
+</view>
+<view class="shebei-head">
+  <text>设备</text>
+</view>
+<view class="shebei-list">
+<block wx:for="{{devices}}">
+  <view class="list-item" bindtap="connectTO" id="{{item.deviceId}}">
+    <image src="../../images/icons_24_dp_watch.png" mode="aspectFit"></image>
+    <text class="item-name">{{item.name}}</text>
+    <text class="item-deviceId">{{item.deviceId}}</text>
+  </view>
+</block>
+</view>

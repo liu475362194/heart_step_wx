@@ -1,0 +1,54 @@
+<!--connection.wxml-->
+<view class="head">
+  <image src="../../images/{{isconnection?'home_connect_pressed':'home_disconnected_pressed'}}.png" class="connect_image" />
+  <!--<block wx:if="{{isconnection}}">
+  <image src="../../images/home_connect_pressed.png" class="connect_image"></image>
+  </block>
+  <block wx:else>
+  <image src="../../images/home_disconnected_pressed.png" class="connect_image"></image>
+  </block>-->
+</view>
+<scroll-view scroll-y="true" class="scroll">
+
+  <view class="steps">
+    <image src="../../images/steps_current_icon.png" class="steps_image" mode="aspectFit"></image>
+    <view class="steps_content">
+      <p class="steps_text">{{mvalue}}</p>
+      <image class="{{tiaodong?'xiao_steps':'da_steps'}}" src="../../images/steps_icon.png" mode="aspectFit"></image>
+      <text class="steps_cimeifen">步</text>
+    </view>
+  </view>
+
+  <view class="steps_list">
+    <view class="steps_sport_mileage">
+      <image src="../../images/small_distance_icon_.png" class="steps_item_image"></image>
+      <text class="steps_item_text">运动里程</text>
+      <text class="steps_item_value">{{distanz}}</text>
+      <text class="steps_item_unit">千米</text>
+    </view>
+
+    <view class="steps_sport_calorie">
+      <image src="../../images/small_calorie_icon.png" class="steps_item_image"></image>
+      <text class="steps_item_text">消耗热量</text>
+      <text class="steps_item_value">{{cal}}</text>
+      <text class="steps_item_unit">卡路里</text>
+    </view>
+
+    <view class="steps_sport_time">
+      <image src="../../images/small_time_icon.png" class="steps_item_image"></image>
+      <text class="steps_item_text">运动时间</text>
+      <text class="steps_item_value">{{h}}:{{m}}:{{s}}</text>
+    </view>
+
+    <view class="steps_sport_speed">
+      <image src="../../images/small_time_icon.png" class="steps_item_image"></image>
+      <text class="steps_item_text">配速</text>
+      <text class="steps_item_value">{{tempo}}</text>
+      <text class="steps_item_unit">步/分</text>
+    </view>
+  </view>
+
+</scroll-view>
+<view class="sport">
+  <image class="sprot_start" src="../../images/{{isstart?'steps_icon_tep':'steps_icon_stop'}}.png" mode="aspectFit" bindtap="startSport"></image>
+</view>

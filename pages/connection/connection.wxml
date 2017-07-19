@@ -1,0 +1,33 @@
+<!--connection.wxml-->
+<!--<button bindtap="getService">getService</button>
+
+<view class="chart">
+<canvas class="chart_canvas" canvas-id="lineCanvas" disable-scroll="true"/></view>
+<text style="float: left;">ss{{mvalue}}</text>-->
+<view class="head">
+  <image src="../../images/{{isconnection?'home_connect_pressed':'home_disconnected_pressed'}}.png" class="connect_image" />
+  <!--<block wx:if="{{isconnection}}">
+  <image src="../../images/home_connect_pressed.png" class="connect_image"></image>
+  </block>
+  <block wx:else>
+  <image src="../../images/home_disconnected_pressed.png" class="connect_image"></image>
+  </block>-->
+</view>
+<scroll-view scroll-y="true" class="scroll">
+
+<view class="heart">
+  <image src="../../images/heartrate_icon_bg.png" class="heart_image" mode="aspectFit"></image>
+  <view class="heart_content">
+    <p class="heart_text">{{mvalue}}</p>
+    <image class="{{tiaodong?'xiao_heart':'da_heart'}}" src="../../images/heartrate.png" mode="aspectFit"></image>
+    <text class="heart_cimeifen">次/分</text>
+  </view>
+</view>
+
+<view class="chart">
+<canvas class="chart_canvas" canvas-id="lineCanvas" disable-scroll="true"/>
+</view>
+</scroll-view>
+<view class="sport">
+  <image class="sprot_start" src="../../images/{{isstart?'steps_icon_tep':'steps_icon_stop'}}.png" mode="aspectFit" bindtap="startSport"></image>
+</view>

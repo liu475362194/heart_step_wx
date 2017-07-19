@@ -1,0 +1,91 @@
+
+
+page {
+  background-color: #012847;
+  height: 100%;
+}
+/*.container {  padding: 0;  margin: 0;  align-items: flex-start;}
+view {  display: inline-block;}
+.img{  position: absolute;  top: 0px;  width: 100%;  height: 100%;}
+.section {  display: block;  width: 100%;  position: absolute;}
+.scroll_blelist{  width: 100%;  height: 90%;  position: absolute;  top:8%;}
+.section_blelist{  position: relative;  width: 100%;  top: 0;  background-color: #fff;}
+.content {  margin: auto;  padding: auto;  position: absolute;  top: px; left: 10px;}
+.switch {  position: relative;  float: right;  right: 0px;}
+button {  background: red\;}
+.list-item {  margin-top: 20rpx;  margin-bottom: 20rpx;   display: flex; flex-direction: column;  box-sizing: border-box;  border: 1px dashed 000;}
+.list-item text {   margin-top: 10rpx;}
+.list-item button {  margin-right: 10rpx;}
+.deviceconnected{  background-color:sandybrown}
+.recieve{  width: 100%}
+.recieve textarea{  border: 1px dashed;  width: 100%}
+input{  display: block;  border: 1px dashed;  width: 200px;}*/
+
+.ble-ready{
+  width: 100%;
+  /*background-color: orange;*/
+  min-height: 40px;
+  position: relative;
+  top: 10px;
+}
+.ble-ready text{
+  float: left;
+  color: #106fba;
+  font-weight: bold;
+  font-family: "黑体";
+  font-size: 15px;
+  margin: 10px 0px auto 10px;
+}
+.ble-ready switch{
+  float: right;
+  margin-right: 10px;
+
+}
+.shebei-head{
+  background-color: #0a528b;
+  height: 38px;
+  position: relative;
+  top: 20px;
+}
+.shebei-head text{
+  color: #106fba;
+  font-weight: bold;
+  font-family: "黑体";
+  position: absolute;
+  top: 8px;
+  left: 10px;
+}
+.shebei-list{
+  height: 50px;
+}
+.list-item{
+  height: 50px;
+  position: relative;
+  top: 30px;
+  border-bottom: 1px solid #106fba;
+}
+.list-item image{
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  top: 5px;
+  left: 15px;
+}
+.item-name{
+  color: #106fba;
+  font-weight: bold;
+  font-family: "黑体";
+  font-size: 16px;
+  position: absolute;
+  top: 5px;
+  left: 70px;
+}
+.item-deviceId{
+  color: #106fba;
+  font-weight: bold;
+  font-family: "黑体";
+  font-size: 13px;
+  position: absolute;
+  top: 30px;
+  left: 70px;
+}

@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/connection/connection",
+    "pages/steps/setps"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#012847",
+    "navigationBarTitleText": "心率计步监测",
+    "navigationBarTextStyle": "writer"
+  },
+  "tabBar": {
+    "selectedColor": "#106fba",
+    "backgroundColor": "#1B1E37",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/connection/connection",
+        "iconPath": "images/heart_icon_normal.png",
+        "selectedIconPath": "images/heart_icon_up.png",
+        "text": "心率"
+      },
+      {
+        "pagePath": "pages/steps/setps",
+        "iconPath": "images/steps_icon_normal.png",
+        "selectedIconPath": "images/steps_icon.png",
+        "text": "步数"
+      }
+    ]
+  },
+  "debug": true
+}
