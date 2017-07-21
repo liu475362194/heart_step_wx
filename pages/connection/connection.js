@@ -10,6 +10,12 @@ var service = ""
 var deviceName = ""
 var characteristic = ""
 var start = false
+var leftStartX = 0
+var leftMoveX = 0
+var moveX = 0
+var canvasWidth = 600
+var windowWidth = 320
+var autoMoveCanvas = true
 Page({
 
   /**
@@ -18,7 +24,8 @@ Page({
   data: {
     isconnection: false,
     isstart: start,
-    tiaodong: false
+    tiaodong: false,
+    left: 0
   },
 
   /**
@@ -74,6 +81,14 @@ Page({
       if(start){
         if (data.length >= 60) {
           categories.push(categories.length)
+          canvasWidth += 5
+          if(autoMoveCanvas){
+          moveX -= 5
+          that.setData({
+            left: moveX,
+            width: canvasWidth
+          })
+          }
         }
         ndata.push(heat)
         data = ndata
@@ -111,7 +126,8 @@ Page({
     }];
     lineChart.updateData({
       categories: simulationData.categories,
-      series: series
+      series: series,
+      width: canvasWidth
     });
   },
 
@@ -218,13 +234,16 @@ Page({
     wx.hideLoading()
     console.log("connection:生命周期函数--监听页面初次渲染完成")
     this.getServices()
-    var windowWidth = 320;
     try {
       var res = wx.getSystemInfoSync();
       windowWidth = res.windowWidth;
+      canvasWidth = windowWidth
     } catch (e) {
       console.error('getSystemInfoSync failed!');
     }
+    this.setData({
+      width: canvasWidth
+    })
 
     var simulationData = this.createSimulationData();
     lineChart = new wxCharts({
@@ -250,7 +269,7 @@ Page({
         },
         min: 0
       },
-      width: windowWidth,
+      width: canvasWidth,
       height: 200,
       dataLabel: false,
       dataPointShape: true,
@@ -258,6 +277,34 @@ Page({
         lineStyle: 'curve'
       }
     });
+  },
+
+  touchStart: function(e){
+    leftStartX = e.touches[0].x
+  },
+
+  touchMove: function(e){
+    autoMoveCanvas = false
+    leftMoveX = e.touches[0].x
+    var move = leftMoveX - leftStartX
+    moveX += move
+    // console.log("X: " + leftMoveX)
+    // console.log("left: " + leftMoveX + " - " + leftStartX + " = " + move)
+    if(moveX >= 0){
+      moveX = 0
+    }
+    if (moveX <= (windowWidth - canvasWidth)){
+      moveX = (windowWidth - canvasWidth)
+      autoMoveCanvas = true
+    }
+    this.setData({
+      left: moveX
+    })
+    leftStartX = e.touches[0].x
+  },
+
+  touchEnd: function(e){
+    leftStartX = leftMoveX
   },
 
   /**

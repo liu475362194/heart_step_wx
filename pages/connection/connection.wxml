@@ -15,18 +15,22 @@
 </view>
 <scroll-view scroll-y="true" class="scroll">
 
-<view class="heart">
-  <image src="../../images/heartrate_icon_bg.png" class="heart_image" mode="aspectFit"></image>
-  <view class="heart_content">
-    <p class="heart_text">{{mvalue}}</p>
-    <image class="{{tiaodong?'xiao_heart':'da_heart'}}" src="../../images/heartrate.png" mode="aspectFit"></image>
-    <text class="heart_cimeifen">次/分</text>
+  <view class="heart">
+    <image src="../../images/heartrate_icon_bg.png" class="heart_image" mode="aspectFit"></image>
+    <view class="heart_content">
+      <p class="heart_text">{{mvalue}}</p>
+      <image class="{{tiaodong?'xiao_heart':'da_heart'}}" src="../../images/heartrate.png" mode="aspectFit"></image>
+      <text class="heart_cimeifen">次/分</text>
+    </view>
   </view>
-</view>
 
-<view class="chart">
-<canvas class="chart_canvas" canvas-id="lineCanvas" disable-scroll="true"/>
-</view>
+
+
+  <view class="chart" style="width: {{width}}px;">
+    <canvas style="position: absolute; left: {{left}}px; width: {{width}}px;" class="chart_canvas" canvas-id="lineCanvas" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd"/>
+  </view>
+
+
 </scroll-view>
 <view class="sport">
   <image class="sprot_start" src="../../images/{{isstart?'steps_icon_tep':'steps_icon_stop'}}.png" mode="aspectFit" bindtap="startSport"></image>
