@@ -20,7 +20,9 @@ Page({
   onLoad: function (options) {
     console.log("steps:生命周期函数--监听页面加载")
    var that = this
-
+    wx.showLoading({
+      title: '正在加载...',
+    })
    for(var i = 10;i < 60;i++){
      timeNum.push(i)
    }
@@ -129,6 +131,7 @@ Page({
    */
   onReady: function () {
     console.log("steps:生命周期函数--监听页面初次渲染完成")
+    wx.hideLoading()
     this.setData({
       isconnection: getApp().globalData.isConnect
     })
@@ -139,7 +142,7 @@ Page({
    */
   onShow: function () {
     console.log("steps:生命周期函数--监听页面显示")
-
+    
   },
 
   /**

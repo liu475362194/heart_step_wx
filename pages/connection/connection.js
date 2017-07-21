@@ -26,6 +26,9 @@ Page({
    */
   onLoad: function (options) {
     console.log("connection:生命周期函数--监听页面加载")
+    wx.showLoading({
+      title: '正在加载...',
+    })
     var that = this
     wx.getStorage({
       key: 'deviceId',
@@ -212,6 +215,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    wx.hideLoading()
     console.log("connection:生命周期函数--监听页面初次渲染完成")
     this.getServices()
     var windowWidth = 320;
@@ -261,7 +265,7 @@ Page({
    */
   onShow: function () {
     console.log("connection:生命周期函数--监听页面显示")
-   
+    
   },
 
   /**
