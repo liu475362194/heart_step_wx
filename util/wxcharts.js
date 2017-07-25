@@ -1405,7 +1405,7 @@ function drawLegend(series, opts, config, context) {
             }
             startX += padding + shapeWidth;
             context.beginPath();
-            context.setFillStyle(opts.extra.legendTextColor || '#333333');
+            context.setFillStyle(opts.extra.legendTextColor || '#ffffff');
             context.fillText(item.name, startX, startY + 9);
             context.closePath();
             context.stroke();

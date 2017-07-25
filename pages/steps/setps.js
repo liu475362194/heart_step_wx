@@ -5,6 +5,7 @@ var isSport = false
 var t
 var timeNum = new Array("00","01","02","03","04","05","06","07","08","09")
 var si = 0, mi = 0, hi = 0
+var app = getApp()
 Page({
 
   /**
@@ -26,6 +27,11 @@ Page({
    for(var i = 10;i < 60;i++){
      timeNum.push(i)
    }
+   app.addListener(function (changedData) {
+     that.setData({
+       isconnection: changedData
+     });
+   });
     
     // wx.onBLECharacteristicValueChange(function(res){
     //   console.log("steps",res)
@@ -80,11 +86,21 @@ Page({
   },
 
   startSport: function(){
-    isSport = !isSport;
-    this.stepCount()
-    this.setData({
-      isstart: isSport
-    })
+    if (getApp().globalData.isConnect == false) {
+      wx.showModal({
+        title: '提示',
+        content: '蓝牙未连接',
+        success: function (res) {
+        }
+      })
+    }else{
+      isSport = !isSport;
+      this.stepCount()
+      this.setData({
+        isstart: isSport
+      })
+    }
+    
   },
 
   totalKM: function(){

@@ -20,7 +20,7 @@
     <view class="heart_content">
       <p class="heart_text">{{mvalue}}</p>
       <image class="{{tiaodong?'xiao_heart':'da_heart'}}" src="../../images/heartrate.png" mode="aspectFit"></image>
-      <text class="heart_cimeifen">次/分</text>
+      <text class="heart_cimeifen" style="font-weight: bold;">次/分</text>
     </view>
   </view>
 

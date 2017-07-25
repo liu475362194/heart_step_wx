@@ -15,7 +15,7 @@
     <view class="steps_content">
       <p class="steps_text">{{mvalue}}</p>
       <image class="{{tiaodong?'xiao_steps':'da_steps'}}" src="../../images/steps_icon.png" mode="aspectFit"></image>
-      <text class="steps_cimeifen">步</text>
+      <text class="steps_cimeifen" style="font-weight: bold;">步</text>
     </view>
   </view>
 

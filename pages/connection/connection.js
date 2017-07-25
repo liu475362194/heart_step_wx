@@ -110,6 +110,7 @@ Page({
         that.setData({
           isconnection: getApp().globalData.isConnect
         })
+        app.setChangedData(false);
       }
     })
   },
@@ -132,10 +133,20 @@ Page({
   },
 
   startSport: function(){
-    start = !start
-    this.setData({
-      isstart: start
-    })
+    if (getApp().globalData.isConnect == false){
+      wx.showModal({
+        title: '提示',
+        content: '蓝牙未连接',
+        success: function (res) {
+        }
+      })
+    } else {
+      start = !start
+      this.setData({
+        isstart: start
+      })
+    }
+    
   },
 
   buf2hex: function (buffer) { // buffer is an ArrayBuffer
@@ -212,14 +223,7 @@ Page({
 
 
   createSimulationData: function () {
-    // var categories = [];
-    // var data = [];
-    // for (var i = 0; i < 10; i++) {
-    //   categories.push('2016-' + (i + 1));
-      
-    // }
-    // data.push(Math.random() * (20 - 10) + 10);
-    // data[4] = null;
+
     return {
       categories: categories,
       data: data
@@ -260,10 +264,10 @@ Page({
         }
       }],
       xAxis: {
-        disableGrid: false
+        disableGrid: true
       },
       yAxis: {
-        title: '心率数据',
+        title: '心率值',
         format: function (val) {
           return val.toFixed(2);
         },
@@ -272,9 +276,9 @@ Page({
       width: canvasWidth,
       height: 200,
       dataLabel: false,
-      dataPointShape: true,
+      dataPointShape: false,
       extra: {
-        lineStyle: 'curve'
+        lineStyle: 'nono'
       }
     });
   },
